@@ -1,8 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% include head.html %}
+</head>
+<body class="home-template" itemscope itemtype="http://schema.org/WebPage">
 {% if page.image.feature %}<header id="masthead" class="blog-background overlay align-center align-middle animated from-bottom"  style="background-image: url({{ site.url }}/images/{{ page.image.feature }})" itemscope itemtype="http://schema.org/Organization">
 {% else %}
 <header id="masthead" class="blog-background overlay align-center align-middle animated from-bottom"  style="background-image: url({{ site.url }}/images/{{ site.default_bg }})" itemscope itemtype="http://schema.org/Organization">
 {% endif %}
-{% if page.headline %}
+{% if site.description %}
     <div class="inner">
         <div class="container">
             <a class="brand light" href="{{ site.url }}" role="banner" itemprop="url">
@@ -15,7 +21,7 @@
                 
             </a>
             <h2 class="blog-description light bordered bordered-top" itemprop="description">
-                {{ page.headline }}
+                {{ site.description }}
             </h2>
         </div>
     </div>
@@ -23,8 +29,8 @@
     <div class="inner">
         <div class="container">
             <a class="brand" href="{{ site.url }}" role="banner" itemprop="url">
-
-                {% if site.logo %}<img itemprop="logo" src="{{ site.url }}/images/{{ site.logo }}" alt="{{ site.title }} Logo" />{% endif %}
+                
+                    <img itemprop="logo" src="{{ site.url }}/images/{{ site.logo }}" alt="{{ site.title }} Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 {{ site.title }}
@@ -63,3 +69,20 @@
     </div>
     {% endif %}
 </header>
+
+
+
+<div id="main" class="content" role="main" itemprop="mainContentOfPage">
+    <div class="container">
+        <div class="row">
+            <div class="page-body" itemprop="description">
+            {{ content }}
+            </div>    
+        </div>
+    </div>
+</div>
+    {% include footer.html %}
+
+{% include scripts.html %}  
+</body>
+</html>
