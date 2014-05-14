@@ -3,6 +3,20 @@
 body {
   background-color: #ecf0f1;
 }
+body,
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
 h1 {
   color: #5f6466;
 }
@@ -256,8 +270,11 @@ p {
   background-color: #14181a;
   color: #ecf0f1;
 }
-.section.footer p.single-line {
+.section.footer p {
   font-size: 16px;
+  line-height: 22px;
+}
+.section.footer p.single-line {
   line-height: 16px;
 }
 @media only screen and (max-width: 1024px) {

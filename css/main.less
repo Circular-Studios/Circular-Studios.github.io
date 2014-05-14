@@ -3,6 +3,10 @@
 @bodyTextColor: #000;
 @margin: 15px;
 
+@lightText: 300;
+@regularText: 400;
+@heavyText: 600;
+
 @navBackground: rgba(0, 173, 224, 0.6);
 @navBackgroundSolid: @circularDarkGrey;
 @navText: @circularLightGrey;
@@ -34,6 +38,16 @@
 
 body {
     background-color: @bodyBackgroundColor;
+}
+
+body, p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: @regularText;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: @heavyText;
 }
 
 h1 {
@@ -386,10 +400,14 @@ p {
         background-color: @circularDarkGrey;
         color: @circularLightGrey;
 
-        p.single-line {
+        p {
             font-size: 16px;
+            line-height: 22px;
+        }
+
+        p.single-line {
+            //font-size: 16px;
             line-height: 16px;
-            //margin-top: 0;
         }
     }
 }
