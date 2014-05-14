@@ -18,7 +18,19 @@
 @circularLightGrey: #ecf0f1;
 @circularDarkGrey: #14181a;
 @dashOrange: #f7941e;
+
+
+@facebook: #3B5998;
+@twitter: #55ACEE;
+@github: #4183c4;
+@mail: @circularBlue;
 /*#endregion*/
+
+
+.transition() {
+    transition: all 0.15s;
+}
+
 
 body {
     background-color: @bodyBackgroundColor;
@@ -149,7 +161,7 @@ p {
 
                 color: @circularLightGrey;
 
-                transition: all 0.15s;
+               .transition();
             }
             a:hover {
                 //color: @circularDarkGrey;
@@ -258,19 +270,60 @@ p {
     font-size: 20px;
     line-height: 20px;
 
+    .transition();
+
     &:hover {
         background-color: @circularDarkBlue;
         color: @circularLightGrey;
+    }
+
+    &.expand {
+        width: 100%;
+        text-align: center;
     }
 
     &.orange {
         background-color: @dashOrange;
         &:hover {
             background-color: @circularDarkGrey;
-            color: @dashOrange;
+            //color: @dashOrange;
         }
     }
     
+}
+
+
+.social-container {
+    display: block;
+    width: 100%;
+}
+.social-link {
+    display: inline-block;
+    //margin: 0 @margin;
+    padding: @margin;
+    //width: 25%;
+    font-size: 30px;
+    text-align: center;
+    color: @circularLightGrey;
+
+    .transition();
+
+    &.facebook:hover {
+        color: @circularLightGrey;
+        background-color: @facebook;
+    }
+    &.twitter:hover {
+        color: @circularLightGrey;
+        background-color: @twitter;
+    }
+    &.github:hover {
+        color: @circularLightGrey;
+        background-color: @github;
+    }
+    &.mail:hover {
+        color: @circularLightGrey;
+        background-color: @mail;
+    }
 }
 
 
@@ -329,8 +382,15 @@ p {
     }
 
     &.footer {
+        padding: @margin 0;
         background-color: @circularDarkGrey;
         color: @circularLightGrey;
+
+        p.single-line {
+            font-size: 16px;
+            line-height: 16px;
+            //margin-top: 0;
+        }
     }
 }
 @media only screen and (max-width: 1024px) {

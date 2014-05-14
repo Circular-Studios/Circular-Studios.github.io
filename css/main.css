@@ -170,17 +170,49 @@ p {
   color: #ecf0f1;
   font-size: 20px;
   line-height: 20px;
+  transition: all 0.15s;
 }
 .cust-button:hover {
   background-color: #108ab3;
   color: #ecf0f1;
+}
+.cust-button.expand {
+  width: 100%;
+  text-align: center;
 }
 .cust-button.orange {
   background-color: #f7941e;
 }
 .cust-button.orange:hover {
   background-color: #14181a;
-  color: #f7941e;
+}
+.social-container {
+  display: block;
+  width: 100%;
+}
+.social-link {
+  display: inline-block;
+  padding: 15px;
+  font-size: 30px;
+  text-align: center;
+  color: #ecf0f1;
+  transition: all 0.15s;
+}
+.social-link.facebook:hover {
+  color: #ecf0f1;
+  background-color: #3b5998;
+}
+.social-link.twitter:hover {
+  color: #ecf0f1;
+  background-color: #55acee;
+}
+.social-link.github:hover {
+  color: #ecf0f1;
+  background-color: #4183c4;
+}
+.social-link.mail:hover {
+  color: #ecf0f1;
+  background-color: #00ade0;
 }
 .section {
   width: 100%;
@@ -220,8 +252,13 @@ p {
   background-image: url('../img/robot-ghosts-cover2.jpg');
 }
 .section.footer {
+  padding: 15px 0;
   background-color: #14181a;
   color: #ecf0f1;
+}
+.section.footer p.single-line {
+  font-size: 16px;
+  line-height: 16px;
 }
 @media only screen and (max-width: 1024px) {
   .section.welcome {
