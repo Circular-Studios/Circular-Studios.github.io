@@ -7,6 +7,7 @@
 @regularText: 400;
 @heavyText: 600;
 
+@shadeBackground: rgba(0, 0, 0, 0.8);
 @navBackground: rgba(0, 173, 224, 0.6);
 @navBackgroundSolid: @circularDarkGrey;
 @navText: @circularLightGrey;
@@ -110,7 +111,35 @@ p {
 
 
 /*#region Nav*/
-#navBuffer {
+#navigation-shade {
+    position: fixed;
+    display: none;
+    top: @navHeight;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-color: transparent;
+
+    transition: background-color 0.15s;
+
+    &.on {
+        background-color: @shadeBackground;
+        display: block;
+    }
+}
+@media only screen and (max-width: 1024px) {
+
+    #navigation-shade {
+        top: @navHeightMed;
+    }
+}
+@media only screen and (max-width: 640px) {
+
+    #navigation-shade {
+        top: @navHeightSmall;
+    }
+}
+#navigation-buffer {
     height: @navHeight;
     width: 100%;
 }
@@ -198,7 +227,7 @@ p {
     }
 }
 @media only screen and (max-width: 1024px) {
-    #navBuffer {
+    #navigation-buffer {
         height: @navHeightMed;
     }
     #navigation {
@@ -225,7 +254,7 @@ p {
     
 }
 @media only screen and (max-width: 640px) {
-    #navBuffer {
+    #navigation-buffer {
         height: @navHeightSmall;
     }
     #navigation {
@@ -246,30 +275,55 @@ p {
         }
 
     }
-    
 }
+#offcanvas-navigation {
+    position: fixed;
+    top: @navHeightSmall;
+    left: 0;
+    right: 100%;
+    height: 100%;
+    margin-left: -100%;
+    z-index: 9;
 
-.nav {
-    //height: @navHeight;
-    background-color: @circularDarkGrey;
-}
+    background-color: @navBackgroundSolid;
+    transition: all 0.15s;
 
-.top-bar, .contain-to-grid, .top-bar-section ul {
-    //background-color: @bodyBackgroundColor;
-}
+    ul {
+        list-style-type: none;
+        width: 100%;
+        margin: 0;
 
-.top-bar, .top-bar-section ul {
-    //height: @navHeight !important;
-}
-.top-bar-section ul li a {
-    //line-height: @navHeight !important;
-}
+        font-size: 20px;
+        line-height: 35px;
 
-.nav-logo {
-    //margin-top: 5px;
-    //height: @navHeight - 10px;
-}
+        li {
+            display: block;
+            width: 100%;
 
+            a {
+                display: block;
+                width: 100%;
+                padding: 5px 15px;
+                //background-color: #555;
+
+                color: @navText;
+
+                transistion: all 0.15s;
+            }
+            a:hover {
+                color: @navBackgroundSolid;
+                background-color: @navText;
+                //color: lighten(@navText, 30%);
+            }
+        }
+    }
+}
+#offcanvas-navigation.on {
+    //display: block;
+    left: 0;
+    right: 50px;
+    margin-left: 0;
+}
 /*#endregion*/
 
 

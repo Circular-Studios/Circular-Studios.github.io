@@ -12,22 +12,32 @@
     </head>
     <body>
 
-        <div id="navBuffer"></div>
+        <div id="navigation-shade"></div>
+
+        <div id="navigation-buffer"></div>
 
         <div id="navigation">
             <div class="row">
                 <div class="large-4 medium-4 columns">
             	    <a href="#" id="nav-menu" alt="Menu"><span></span></a>
-                    <a href="#welcome" class="logo"><img src="img/circular-logo.png" /></a>
+                    <a href="#welcome" id="nav-logo" class="logo"><img src="img/circular-logo.png" /></a>
                 </div>
                 <div class="large-8 medium-8 columns hide-for-small">
                     <ul class="inline-list right">
-                        <li><a href="#dash" class="orange">Dash</a></li>
-                        <li><a href="#games" class="blue">Games</a></li>
-                        <li><a href="#about" class="dark-blue">About</a></li>
+                        <li><a href="#dash">Dash</a></li>
+                        <li><a href="#games">Games</a></li>
+                        <li><a href="#about">About</a></li>
                     </ul>
                 </div>
             </div>
+        </div>
+
+        <div id="offcanvas-navigation" class="hide-for-medium-up">
+    	    <ul>
+                <li><a href="#dash">Dash</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
         </div>
   
         <!-- End Header and Nav -->
@@ -151,6 +161,32 @@
         <script src="js/foundation.min.js"></script>
         <script>
             $(document).foundation();
+
+            $(document).ready(function () {
+
+                //FastClick.attach(document.body);
+
+                var toggleNav = function (e) {
+                    e.preventDefault();
+                    $('#offcanvas-navigation').toggleClass('on');
+                    $('#navigation-shade').toggleClass('on');
+                }
+
+                $('#nav-menu').click(function (e) {
+                    toggleNav(e);
+                });
+                $('#navigation-shade').click(function (e) {
+                    toggleNav(e);
+                });
+                $('#offcanvas-navigation a').click(function (e) {
+                    $('#offcanvas-navigation').toggleClass('on', false);
+                    $('#navigation-shade').toggleClass('on', false);
+                });
+                $('#nav-logo').click(function (e) {
+                    $('#offcanvas-navigation').toggleClass('on', false);
+                    $('#navigation-shade').toggleClass('on', false);
+                });
+            });
         </script>
     </body>
 </html>

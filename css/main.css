@@ -71,7 +71,31 @@ p {
   margin-bottom: 30px;
 }
 /*#region Nav*/
-#navBuffer {
+#navigation-shade {
+  position: fixed;
+  display: none;
+  top: 75px;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background-color: transparent;
+  transition: background-color 0.15s;
+}
+#navigation-shade.on {
+  background-color: rgba(0, 0, 0, 0.8);
+  display: block;
+}
+@media only screen and (max-width: 1024px) {
+  #navigation-shade {
+    top: 65px;
+  }
+}
+@media only screen and (max-width: 640px) {
+  #navigation-shade {
+    top: 65px;
+  }
+}
+#navigation-buffer {
   height: 75px;
   width: 100%;
 }
@@ -130,7 +154,7 @@ p {
   background-color: #00ade0;
 }
 @media only screen and (max-width: 1024px) {
-  #navBuffer {
+  #navigation-buffer {
     height: 65px;
   }
   #navigation {
@@ -153,7 +177,7 @@ p {
   }
 }
 @media only screen and (max-width: 640px) {
-  #navBuffer {
+  #navigation-buffer {
     height: 65px;
   }
   #navigation {
@@ -171,8 +195,43 @@ p {
     float: left;
   }
 }
-.nav {
+#offcanvas-navigation {
+  position: fixed;
+  top: 65px;
+  left: 0;
+  right: 100%;
+  height: 100%;
+  margin-left: -100%;
+  z-index: 9;
   background-color: #14181a;
+  transition: all 0.15s;
+}
+#offcanvas-navigation ul {
+  list-style-type: none;
+  width: 100%;
+  margin: 0;
+  font-size: 20px;
+  line-height: 35px;
+}
+#offcanvas-navigation ul li {
+  display: block;
+  width: 100%;
+}
+#offcanvas-navigation ul li a {
+  display: block;
+  width: 100%;
+  padding: 5px 15px;
+  color: #ecf0f1;
+  transistion: all 0.15s;
+}
+#offcanvas-navigation ul li a:hover {
+  color: #14181a;
+  background-color: #ecf0f1;
+}
+#offcanvas-navigation.on {
+  left: 0;
+  right: 50px;
+  margin-left: 0;
 }
 /*#endregion*/
 .cust-button {
